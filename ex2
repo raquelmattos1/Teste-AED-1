@@ -1,0 +1,49 @@
+""" Implemente um pequeno simulador do esforço cardíaco, no desenvolvimento de atividade física.
+O esforço cardíaco de um atleta depende da sua frequência cardíaca máxima (FCM), que se calcula da seguinte
+forma (depende da idade e do género):
+• Nas mulheres, 226 – idade.
+• Nos homens, 220 – idade.
+Por exemplo, num indivíduo do género masculino de 35 anos, a FCM = 220-35=185 (batimentos p/ minuto).
+O seu simulador deve pedir:
+• O género (M – Masculino ou F – feminino). Deve aceitar a introdução de maiúsculas e minúsculas.
+• A idade
+• A indicação de frequência cardíaca
+Deve calcular e apresentar:
+• A FCM, de acordo com a forma de cálculo acima indicada
+• A classificação da atividade física, em função da frequência cardíaca indicada, e que se obtém da seguinte
+forma:
+▪ Atividade moderada: 50% a 60% da FCM
+▪ Treino de resistência: 61% a 70% da FCM
+▪ Nível aeróbico: 71% a 80% da FCM
+▪ Nível anaeróbico: 81% a 90% da FCM
+▪ Red zone – 91% a 100% da FCM
+No final de cada execução, o seu programa deverá perguntar ao utilizador: Deseja indicar novos dados (S/N)? agindo
+em conformidade com a resposta dada pelo utilizador. """
+
+resp = 'S'
+while resp.upper() == 'S':
+    if resp in 'Nn':
+        print('FIM')
+        break
+    else:
+        genero = str(input('Genero [F/M]: '))
+        idade = int(input('Idade: '))
+        fc = int(input('Frequência cardíaca: '))
+        if genero in 'Mm':
+            fcm = 220 - idade
+        else:
+            fcm = 226 - idade
+
+        print('*' * 15)
+        if (0.5 * fcm) < fc < (0.6 * fcm):
+            print(f'FCM = {fcm} \nAtividade moderada')
+        elif (0.61 * fcm) < fc < (0.7 * fcm):
+            print(f'FCM = {fcm} \nTreino de resistencia')
+        elif (0.71 * fcm) < fc < (0.8 * fcm):
+            print(f'FCM = {fcm} \nNível aeróbico')
+        elif (0.81 * fcm) < fc < (0.9 * fcm):
+            print(f'FCM = {fcm} \nNível anaeróbico')
+        else:
+            print(f'FCM = {fcm} \nRed zone')
+        print('*' * 15)
+        resp = str(input('Deseja inserir novos dados? [s/n]'))
