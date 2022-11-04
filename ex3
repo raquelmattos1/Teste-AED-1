@@ -1,0 +1,21 @@
+""" Implemente um programa que leia um texto e o nº de caracteres que se pretende imprimir por cada linha.
+O seu programa deve invocar uma função que receba o texto e o nº de caracteres a imprimir por cada linha, imprimindo
+o texto em função desse valor, conforme ilustra a imagem abaixo.
+
+Note que deve validar a introdução do nº de caracteres por linha, de forma a que seja indicado um número inteiro,
+positivo, entre 1 e 12. """
+
+
+texto = str(input('Insira um texto qualquer: '))
+qnt = int(input('Caracteres por linha [1-12]: '))
+
+
+
+if 1 <= qnt <= 12:
+    cont = 0
+    while cont < len(texto):
+        
+        print(f'{texto[cont:int(cont+qnt)]}')
+        cont += qnt
+else:
+    print('Insira um valor válido!')
